@@ -32,9 +32,11 @@ struct MovieDetailsView: View {
                     Spacer()
                     Text(String(repeating: "★", count: Int(movie.rating)))
                         .foregroundColor(.yellow).font(.title)
+                        .accessibility(label: Text("\(Int(movie.rating)) star rating"))
                     Spacer()
                 }
                 Slider(value: $movie.rating, in: 1...5, step: 1)
+                    .accessibility(label: Text("\(Int(movie.rating)) star rating"))
             }
             Section {
                 SectionTitle(title: "Seen")
