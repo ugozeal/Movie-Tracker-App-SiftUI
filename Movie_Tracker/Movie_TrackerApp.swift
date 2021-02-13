@@ -10,11 +10,11 @@ import SwiftUI
 @main
 struct Movie_TrackerApp: App {
     let persistenceController = PersistenceController.shared
-
+    let movieStorage = MovieStorage()
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            MovieList()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext).environmentObject(movieStorage)
         }
     }
 }
